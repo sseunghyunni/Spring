@@ -1,0 +1,15 @@
+package sec05.ex01;
+
+import java.util.List;
+
+public class BoardService {
+	BoardDAO boardDAO;
+	
+	public BoardService() {
+		boardDAO = new BoardDAO();
+	
+	public addArticle(ArticleVO article) {
+		boardDAO.insertNewArticle(article);
+	}
+}
+}

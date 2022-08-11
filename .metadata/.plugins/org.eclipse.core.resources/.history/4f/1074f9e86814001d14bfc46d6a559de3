@@ -1,0 +1,20 @@
+package sec01.ex01;
+
+import javax.naming.Context;
+
+public class MemberDAO {
+	private Connection con;
+	private PreparedStatement pstmt;
+	private DataSource dataFactory;
+	
+	public MemberDAO() {
+		try {
+			Context ctx= new lnitialContext();
+			
+			Context envContext =(Context) ctx.lookup("java:/comp/env");
+			dataFactory=(DataSource) envContext.lookup("jdbc/servletex");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}	

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=pageLoad;
+//브라우저에 웹페이지가 로드될 때 pageLoad()함수 실행 
+function pageLoad(){
+	notShowPop=getCookieValue();
+	//notshowpop은 getcookievalue의 result값 받음 
+	
+	if(notShowPop!="true"){
+		//notshowpop이 false면 
+		window.open("popUp.html","pop","width=400,height=500,history=no,resizable=no,status=no,scrollbars=yes,menubar=no");
+	//popuphtml을 띄워라
+	}
+}
+//result반환하는 함수인 getcookievalue()-->초기값 false
+function getCookieValue(){
+	var result="false";
+	if(document.cookie != ""){
+		//문서의 cookie가 비어있지 않다면 쿠키를 ;로 나누어서 배열에 넣어라
+		//cookie[0]= notshowpop=false - cookie[1]=pat/ cookie[2]=expires=-1
+		cookie = document.cookie.split(";");
+		for(var i=0 ; i<cookie.length;i++){
+			//분리한 배열번호까지 1씩 증가하는 for문
+			element=cookie[i].split("=");
+			//element에 cookie[i]의 값을 다시 분리
+			value=element[0];
+			value=value.replace(/^s*/,'');
+			if(value=="notShowPop"){
+				result=element[1];
+			}
+		}
+	}
+		return result;//쿠키가 비어있다면 바로result로 옴 
+	}
+	function deleteCookie() {
+		document.cookie="notShowPop="+ false +";path=/;expires=-1";
+	}
+	
+</script>
+</head>
+<body>
+ 	<form>
+ 		<input type=button value="쿠키삭제" onClick="deleteCookie()">
+ 	</form>
+</body>
+</html>

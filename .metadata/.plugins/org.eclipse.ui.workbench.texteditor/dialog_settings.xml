@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="modArticle.do"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="modarticle.do"/>
+			<item value="integer"/>
+			<item value="*"/>
+			<item value="//"/>
+			<item value="oldFile"/>
+			<item value="listarticle.do"/>
+			<item value="boardservice"/>
+			<item value="articlesList"/>
+			<item value="return"/>
+			<item value="&quot;SELECT function_hierarchical() AS articleNO,"/>
+			<item value="selectArticle"/>
+			<item value="articleNO"/>
+			<item value="fileName"/>
+			<item value="download"/>
+			<item value="addarticle"/>
+		</list>
+		<list key="replacehistory">
+			<item value=""/>
+			<item value="board06"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="828"/>
+		<item key="DIALOG_Y_ORIGIN" value="580"/>
+		<item key="DIALOG_WIDTH" value="288"/>
+		<item key="DIALOG_HEIGHT" value="395"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+</section>

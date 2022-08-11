@@ -1,0 +1,9 @@
+127.0.0.1 - - [02/Aug/2022:17:29:28 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [02/Aug/2022:17:29:29 +0900] "GET /study/05-69.html HTTP/1.1" 200 394
+0:0:0:0:0:0:0:1 - - [02/Aug/2022:17:29:29 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [02/Aug/2022:17:29:33 +0900] "GET /study/login100?user_id=dddd&user_pw=7u HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2022:17:31:15 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [02/Aug/2022:17:31:15 +0900] "GET /pro06/input.html HTTP/1.1" 200 664
+0:0:0:0:0:0:0:1 - - [02/Aug/2022:17:33:51 +0900] "GET /pro06/input2?user_id=sd&user_pw=123&subject=java&subject=JSP HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2022:17:36:00 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [02/Aug/2022:17:36:06 +0900] "GET /pro06/input2?user_id=gh&user_pw=hj&subject=java&subject=C%EC%96%B8%EC%96%B4 HTTP/1.1" 200 -
