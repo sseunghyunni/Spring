@@ -33,5 +33,5 @@ public class MemberServiceImpl implements MemberService {
 	public int removeMember(String id) throws DataAccessException {
 		return memberDAO.deleteMember(id);
 	}
-
+	
 }
