@@ -17,7 +17,7 @@
 	padding:5px;
 	margin-bottom:5px;
 	border:0px solid #bcbcbc;
-		background-color:lightgreen;
+		background-color:yellow;
 	}
 	#sidebar-left{
 	width:15%;
@@ -26,7 +26,7 @@
 	margin-right:5px;
 	margin-bottom:5px;
 	float:left;
-	background-color:yellow;
+	background-color:lightblue;
 	border:0px solid #bcbcbc;
 	font-size:10px;
 	}
