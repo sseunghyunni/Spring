@@ -9,6 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.myspring.pro30.board.vo.ArticleVO;
+import com.myspring.pro30.board.vo.imageVO;
 
 @Repository("boardDAO")
 public class BoardDAOImpl implements BoardDAO {
@@ -23,14 +24,15 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public int insertNewArticle(Map articleMap) throws DataAccessException {
-		int result = sqlSession.insert("mapper.board.insertMember", articleMap);
-		return result;
+		int articleNO = selectNewArticleNO();
+		articleMap.put("articleNO",articleNO);
+		sqlSession.insert("mapper.board.insertNewArticle",articleMap);
+		return articleNO;
 	}
 
 	@Override
 	public ArticleVO selectArticle(int articleNO) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("mapper.board.selectNewArticleNO");
 	}
 
 	@Override
@@ -44,6 +46,20 @@ public class BoardDAOImpl implements BoardDAO {
 		int result = sqlSession.delete("mapper.board.deleteMember",articleNO);
 		return;
 
+	}
+	@Override
+	public List selectImageFileList(int articleNO) throws DataAccessException{
+		List<imageVO> imageFileList = null;
+		imageFileList = sqlSession.selectList("mapper.board.selectImageFileList",articleNO);
+		return imageFileList;
+	}
+	
+	private int selectNewArticleNO() throws DataAccessException {
+		return sqlSession.selectOne("mapper.board.selectNewArticleNO");
+	}
+	
+	private int selectNewImageFileNO() throws DataAccessException{
+		return sqlSession.selectOne("mapper.board.selectNewImageFileNO");
 	}
 
 }

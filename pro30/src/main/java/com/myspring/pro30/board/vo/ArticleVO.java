@@ -17,6 +17,7 @@ public class ArticleVO {
 	private String imageFileName;
 	private String id;
 	private Date writeDate;
+	
 	public int getLevel() {
 		return level;
 	}

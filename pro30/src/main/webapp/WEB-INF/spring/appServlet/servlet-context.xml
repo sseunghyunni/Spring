@@ -46,7 +46,7 @@
 
    <mvc:interceptors>
       <mvc:interceptor>
-         <mvc:mapping path="/test/*.do" />
+ <!--         <mvc:mapping path="/test/*.do" /> -->
          <mvc:mapping path="/*/*.do" />
          <beans:bean
             class="com.myspring.pro30.common.interceptor.ViewNameInterceptor" />
@@ -55,5 +55,11 @@
    
    
    <mvc:annotation-driven /> 
+   
+    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+   	<beans:property name="maxUploadSize" value="52428800"></beans:property>
+   	<beans:property name="maxInMemorySize" value="52428800"/>
+   	<beans:property name="defaultEncoding" value="utf-8"/>
+   </beans:bean>
 
 </beans:beans>

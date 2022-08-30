@@ -7,10 +7,10 @@
   request.setCharacterEncoding("utf-8");
   %>
   <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-  <c:set var="articlesList" value="${articlesMap.articlesList }"/>
+ <%--   <c:set var="articlesList" value="${articlesMap.articlesList }"/>
   <c:set var="totArticles" value="${articlesMap.totArticles }"/>
   <c:set var="section" value="${articlesMap.section }"/>
-  <c:set var="pageNum" value="${articlesMap.pageNum }"/>
+  <c:set var="pageNum" value="${articlesMap.pageNum }"/> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +22,19 @@
 
 </style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title></title>
 </head>
+<script>
+ function fn_articleForm(isLogOn, articleForm, loginForm){
+	 if(isLogOn !='' && isLogOn !='false'){
+		 location.href=articleForm;
+	 }else{
+		 alert("로그인 후 글쓰기가 가능합니다.")
+		 location.href=loginForm+'?action=/board/articleForm.do';
+		 
+	 }
+ }
+</script>
 <body>
 
 	<table align="center" border="1" width="80%">
@@ -34,7 +45,7 @@
 	<td>작성일</td>
 	</tr>
 	<c:choose>
-	<c:when test="${empty articlesList }">
+	<c:when test="${articlesList ==null }">
 		<tr height="10">
 		<td colspan="4">
 		<p align ="center">
@@ -43,7 +54,7 @@
 		</td>
 		</tr>
 	</c:when>
-	<c:when test="${!empty articlesList }">
+	<c:when test="${articlesList !=null }">
 	<c:forEach var="article" items="${articlesList }" varStatus="articleNum">
 		<tr align="center">
 		<td width="5%">${articleNum.count }</td>
@@ -54,8 +65,6 @@
  <c:when test='${article.level > 1 }'> 
  <c:forEach begin="1" end="${article.level }" step="1">
  <span style="padding-left:10px"></span> 
-
- 
  </c:forEach>
  <span style="font-size:12px;">[답변]</span>
  <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}">${article.title}</a>
@@ -72,7 +81,7 @@
 	</c:choose>
 	</table>
 	
-<div class="cls2">
+<%-- <div class="cls2">
 	<c:if test="${totArticles != null }">
 		<c:choose>
 			<c:when test="${totArticles >100 }">
@@ -106,8 +115,8 @@
 		</c:forEach>
 	</c:when>
 </c:choose>
-</c:if>			
-</div>
-	<a class="cls1" href="${contextPath }/board/articleForm.do"><p class="cls2">글쓰기</p></a>
+</c:if>		 
+</div>--%>	
+	<a class="cls1" href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', '${contextPath}/member/loginForm.do')"><p class="cls2">글쓰기</a>
 </body>
 </html>

@@ -40,6 +40,7 @@ public class BoardControllerImpl implements BoardController {
 	@Autowired
 	private ArticleVO articleVO;
 	
+	
 	@Override
 	@RequestMapping(value="/board/listArticles.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -49,6 +50,7 @@ public class BoardControllerImpl implements BoardController {
 		mav.addObject("articlesList",articlesList);
 		return mav;
 	}
+	
 
 	@Override
 	@RequestMapping(value="/board/addNewArticle.do",method=RequestMethod.POST)
@@ -70,10 +72,11 @@ public class BoardControllerImpl implements BoardController {
 		articleMap.put("parentNO", 0);
 		articleMap.put("id", id);
 		articleMap.put(imageFileName, imageFileName);
+		
 		String message;
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Content-Type", "text/html; charset = utf-8");
+		responseHeaders.add("Content-Type", "text/html;charset=utf-8");
 		try {
 			int articleNO = boardService.addNewArticle(articleMap);
 			if(imageFileName !=null && imageFileName.length()!=0) {
@@ -89,6 +92,7 @@ public class BoardControllerImpl implements BoardController {
 		}catch (Exception e) {
 			File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
 			srcFile.delete();
+			
 			message = "<script>";
 			message += "alert('오류가 발생했습니다. 다시 시도해 주세요');');";
 			message +=  "location.href='"+multipartRequest.getContextPath()+"/board/articleForm.do';";
@@ -98,6 +102,7 @@ public class BoardControllerImpl implements BoardController {
 		}
 		return resEnt;
 	}
+	
 
 	@Override
 	@RequestMapping(value="/board/viewArticle.do",method= RequestMethod.GET)
@@ -111,6 +116,7 @@ public class BoardControllerImpl implements BoardController {
 		return mav;
 		
 	}
+	
 	
 	@RequestMapping(value="/board/modArticle.do", method= RequestMethod.POST)
 	@ResponseBody
@@ -130,7 +136,7 @@ public class BoardControllerImpl implements BoardController {
 		String message;
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Content-Type","text/html; charset = utf-8");
+		responseHeaders.add("Content-Type","text/html;charset=utf-8");
 		try {
 			boardService.modArticle(articleMap);
 			if(imageFileName!=null && imageFileName.length()!=0) {
@@ -157,13 +163,14 @@ public class BoardControllerImpl implements BoardController {
 		}
 		return resEnt;
 	}
+	
 
 	@Override
 	@RequestMapping(value="/board/removeArticle.do",method=RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity removeArticle(int articleNO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		response.setContentType("text/html; charset = UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		String message;
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
@@ -189,6 +196,7 @@ public class BoardControllerImpl implements BoardController {
 		return resEnt;
 	}
 	
+	
 	@RequestMapping(value="/board/*Form.do",method=RequestMethod.GET)
 	private ModelAndView form(HttpServletRequest request, HttpServletResponse response)throws Exception{
 		String vieName = (String)request.getAttribute("viewName");
@@ -196,6 +204,7 @@ public class BoardControllerImpl implements BoardController {
 		mav.setViewName(vieName);
 		return mav;
 	}
+	
 	
 	private String upload(MultipartHttpServletRequest multipartRequest) throws Exception{
 		String imageFileName = null;

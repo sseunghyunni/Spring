@@ -25,7 +25,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int addNewArticle(Map articleMap) throws DataAccessException {
+	public int addNewArticle(Map articleMap) throws Exception {
 		return boardDAO.insertNewArticle(articleMap);
 	}
 	@Override
